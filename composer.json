@@ -1,0 +1,17 @@
+{
+    "name": "theresnogit/why-i-edit",
+    "type": "project",
+    "require": {},
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+    },
+    "authors": [
+        {
+            "name": "Sam",
+            "email": "sam@theresnotime.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"WhyIEdit\\": "includes/WhyIEdit/"}
+    }
+}

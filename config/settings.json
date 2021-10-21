@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "site_name": "Why I Edit",
+        "site_desc": "People edit Wikipedia for lots of reasons - here's some"
+    },
+    "languages": [
+        "en"
+    ],
+    "api": {
+        "valid_actions": [
+            "getQuote",
+            "getAllQuotes"
+        ]
+    }
+}

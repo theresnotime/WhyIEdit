@@ -26,10 +26,9 @@ $meta = new WhyIEdit\Meta('en');
         <meta name="description" content="<?php echo $meta->site_desc; ?>"/>
         <title><?php echo $meta->site_name; ?></title>
         <!-- Preconnects etc -->
-        <link rel="dns-prefetch" href="//i1.wp.com" />
         <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-        <link rel="dns-prefetch" href="//imagedelivery.net" />
         <link rel="dns-prefetch" href="//www.google-analytics.com">
+        <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://cdn.jsdelivr.net">
         <!-- Styles -->
@@ -41,13 +40,12 @@ $meta = new WhyIEdit\Meta('en');
         <!-- SEO -->
         <meta property="og:title" content="<?php echo $meta->site_name; ?>">
         <meta property="og:description" content="<?php echo $meta->site_desc; ?>">
-        <meta property="og:image" content="todo">
+        <meta property="og:image" content="<?php echo $meta->puzzle_img; ?>">
         <meta property="og:url" content="https://www.theresnotime.co.uk">
         <meta name="twitter:title" content="<?php echo $meta->site_name; ?>">
         <meta name="twitter:description" content="<?php echo $meta->site_desc; ?>">
-        <meta name="twitter:image" content="todo">
+        <meta name="twitter:image" content="<?php echo $meta->puzzle_img; ?>">
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="todo">
         <!-- Critical JS -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">

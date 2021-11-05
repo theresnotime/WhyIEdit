@@ -33,8 +33,10 @@ class Meta
 {
     public array $settings;
     public array $localise;
+    public string $site_url;
     public string $site_name;
     public string $site_desc;
+    public string $puzzle_img;
     public array $languages;
     public array $apiActions;
 
@@ -63,6 +65,9 @@ class Meta
             // Set from config file
             $this->site_name = $this->localise['meta']['site_name'];
             $this->site_desc = $this->localise['meta']['site_desc'];
+            $this->site_url = $this->localise['meta']['site_url'];
+            $this->puzzle_img = $this->site_url . 
+                $this->settings['static']['puzzle_img'];
             $this->languages = $this->settings['languages'];
             $this->apiActions = $this->settings['api']['valid_actions'];
     

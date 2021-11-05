@@ -1,7 +1,6 @@
 {
-    "meta": {
-        "site_name": "Why I Edit",
-        "site_desc": "People edit Wikipedia for lots of reasons - here's some"
+    "static": {
+        "puzzle_img": "/assets/img/wikipedia-logo.png"
     },
     "languages": [
         "en"

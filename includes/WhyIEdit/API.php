@@ -45,7 +45,7 @@ class API
                 if (isset($_GET['action'], $_GET['lang'])) {
                     $action = $_GET['action'];
                     $lang = $_GET['lang'];
-                    $settings = new Meta();
+                    $settings = new Meta($lang);
     
                     if (in_array($action, $settings->apiActions) 
                         && in_array($lang, $settings->languages)
@@ -146,6 +146,37 @@ class API
             echo json_encode($data);
         } catch (Exception $e) {
             $this->returnError(500, 'Could not get quotes');
+            throw new Exception($e);
+        }
+    }
+
+    /**
+     * Return all localised strings
+     *
+     * @param string $lang Language code
+     * 
+     * @return void
+     */
+    public function getLocalisation(string $lang)
+    {
+        try {
+            $localised = json_decode(
+                file_get_contents(
+                    __DIR__ . "/../../lang/$lang.json"
+                ),
+                true
+            );
+    
+            $data = array(
+                'success' => true,
+                'action' => 'getLocalisation',
+                'timestamp' => date('U'),
+                'strings' => $localised
+            );
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode($data);
+        } catch (Exception $e) {
+            $this->returnError(500, 'Could not get localised strings');
             throw new Exception($e);
         }
     }

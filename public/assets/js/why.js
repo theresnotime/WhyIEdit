@@ -1,11 +1,21 @@
 $(async function () {
+    // Config
+    const language = 'en';
+    let strings = await localise();
     const query = '#quotes .letters';
-    let edits_to = 'edits Wikipedia to';
+    let edits_to = strings.ui.standard.edits_to;
     let run = true;
+
+    // Set up initial quote list
     let quoteList = await getQuoteList();
 
     updateQuote();
     animate();
+
+    async function localise() {
+        const data = await $.getJSON('/api/?action=getLocalisation&lang=' + language);
+        return data.strings;
+    }
 
     /**
      * Cycle through each quote and animate
@@ -75,7 +85,12 @@ $(async function () {
      */
     function finish() {
         let timeline = anime.timeline({
-            loop: false
+            loop: false,
+            complete: function(anim) {
+                let signUp = document.getElementById('sign-up');
+                signUp.innerHTML = strings.ui.finish.cta;
+                signUp.style.opacity = "1";
+            }
         });
     
         timeline.add({
@@ -111,6 +126,7 @@ $(async function () {
                 duration: 1000,
                 delay: (el, i) => 34 * (i + 1)
             }, '-=775');
+
     }
 
     /**
@@ -150,9 +166,9 @@ $(async function () {
             let edits_to = document.getElementById('editsto');
             edits_to.style.opacity = "0"; 
             return {
-                user: "Lots of people",
-                editsto: "edit Wikipedia for lots of reasons.",
-                quote: "Have you found yours?"
+                user: strings.ui.finish.user,
+                editsto: strings.ui.finish.edits_to,
+                quote: strings.ui.finish.quote
             };
         }
         
@@ -181,7 +197,7 @@ $(async function () {
      * @returns Object
      */
     async function getQuoteList() {
-        const data = await $.getJSON('/api/?action=getAllQuotes&lang=en');
+        const data = await $.getJSON('/api/?action=getAllQuotes&lang=' + language);
         return data.quotes;
     }
 });

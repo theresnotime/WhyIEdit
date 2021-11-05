@@ -15,6 +15,6 @@
  */
 declare(strict_types=1);
 require_once __DIR__ . '/../../vendor/autoload.php';
-$meta = new WhyIEdit\Meta();
+$meta = new WhyIEdit\Meta('en');
 $api = new WhyIEdit\API(true);
 ?>

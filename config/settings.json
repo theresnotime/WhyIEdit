@@ -9,7 +9,8 @@
     "api": {
         "valid_actions": [
             "getQuote",
-            "getAllQuotes"
+            "getAllQuotes",
+            "getLocalisation"
         ]
     }
 }

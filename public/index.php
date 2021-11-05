@@ -15,7 +15,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$meta = new WhyIEdit\Meta();
+$meta = new WhyIEdit\Meta('en');
 
 ?>
 <!doctype html>
@@ -74,6 +74,7 @@ $meta = new WhyIEdit\Meta();
                     <span class="letters" id="quoteText">&nbsp;</span>
                 </span>
             </h2>
+            <p class="lead" id="sign-up">&nbsp;</p>
         </div>
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"

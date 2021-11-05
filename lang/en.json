@@ -1,0 +1,17 @@
+{
+    "meta": {
+        "site_name": "Why I Edit",
+        "site_desc": "People edit Wikipedia for lots of reasons - here's some"
+    },
+    "ui": {
+        "standard": {
+            "edits_to": "edits Wikipedia to"
+        },
+        "finish": {
+            "user": "Lots of people",
+            "edits_to": "edit Wikipedia for lots of reasons.",
+            "quote": "What will yours be?",
+            "cta": "Start <a href='https://en.wikipedia.org/wiki/Help:Introduction' target='_blank'>your journey</a>"
+        }
+    }
+}

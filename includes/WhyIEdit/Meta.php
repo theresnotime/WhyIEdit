@@ -32,6 +32,7 @@ use Exception;
 class Meta
 {
     public array $settings;
+    public array $localise;
     public string $site_name;
     public string $site_desc;
     public array $languages;
@@ -39,8 +40,10 @@ class Meta
 
     /**
      * Construct
+     * 
+     * @param $lang Language code
      */
-    function __construct()
+    function __construct(string $lang)
     {
         try {
             $this->settings = json_decode(
@@ -49,10 +52,17 @@ class Meta
                 ),
                 true
             );
+
+            $this->localise = json_decode(
+                file_get_contents(
+                    __DIR__ . "/../../lang/$lang.json"
+                ),
+                true
+            );
     
             // Set from config file
-            $this->site_name = $this->settings['meta']['site_name'];
-            $this->site_desc = $this->settings['meta']['site_desc'];
+            $this->site_name = $this->localise['meta']['site_name'];
+            $this->site_desc = $this->localise['meta']['site_desc'];
             $this->languages = $this->settings['languages'];
             $this->apiActions = $this->settings['api']['valid_actions'];
     

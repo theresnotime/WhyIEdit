@@ -6,6 +6,7 @@
         "en"
     ],
     "api": {
+        "quote_location": "https://raw.githubusercontent.com/TheresNoGit/WhyIEditQuotes/main/lang/",
         "valid_actions": [
             "getQuote",
             "getAllQuotes",

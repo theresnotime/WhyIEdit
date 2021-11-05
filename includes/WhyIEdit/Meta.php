@@ -39,6 +39,7 @@ class Meta
     public string $puzzle_img;
     public array $languages;
     public array $apiActions;
+    public string $quoteLocation;
 
     /**
      * Construct
@@ -70,6 +71,7 @@ class Meta
                 $this->settings['static']['puzzle_img'];
             $this->languages = $this->settings['languages'];
             $this->apiActions = $this->settings['api']['valid_actions'];
+            $this->quoteLocation = $this->settings['api']['quote_location'];
     
             return $this;
         } catch (Exception $e) {

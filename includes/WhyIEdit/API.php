@@ -94,9 +94,11 @@ class API
     public function getQuote(string $lang)
     {
         try {
+            $settings = new Meta($lang);
+
             $quotes = json_decode(
                 file_get_contents(
-                    __DIR__ . "/../../quotes/$lang/quotes.json"
+                    $settings->quoteLocation . "$lang/quotes.json"
                 ),
                 true
             );
@@ -129,9 +131,11 @@ class API
     public function getAllQuotes(string $lang)
     {
         try {
+            $settings = new Meta($lang);
+
             $quotes = json_decode(
                 file_get_contents(
-                    __DIR__ . "/../../quotes/$lang/quotes.json"
+                    $settings->quoteLocation . "$lang/quotes.json"
                 ),
                 true
             );
@@ -160,6 +164,8 @@ class API
     public function getLocalisation(string $lang)
     {
         try {
+            $settings = new Meta($lang);
+
             $localised = json_decode(
                 file_get_contents(
                     __DIR__ . "/../../lang/$lang.json"
